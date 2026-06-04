@@ -1,0 +1,21 @@
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# ChromaDB
+backend/chroma_db/
+backend/test_chroma_db/
+
+# Uploaded Documents
+backend/uploads/
+
+# IDE
+.vscode/
+.idea/
