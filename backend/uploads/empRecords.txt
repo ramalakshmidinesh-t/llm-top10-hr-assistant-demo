@@ -1,0 +1,13 @@
+Employee Name: John
+Employee ID: EMP001
+DOB: 10-Jan-1990
+Phone: 9876543210
+Email: john@quarksek.com
+Manager: Fedrick
+
+Employee Name: Kate
+Employee ID: EMP002
+DOB: 15-Mar-1992
+Phone: 9876543211
+Email: kate@quarksek.com
+Manager: John
