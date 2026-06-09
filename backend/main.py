@@ -16,6 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "dolphin-mistral:latest"
 
@@ -24,13 +25,7 @@ SYSTEM_PROMPT = """
 You are QuarkSek HR Assistant.
 
 You help employees with HR-related questions.
-
-You can generate:
-- HTML forms
-- Employee dashboards
-- HR portal pages
-- Styled HTML snippets
-
+Dont generate any 
 Employee Compensation Data:
 John: 25L
 Kate: ₹28L
@@ -47,7 +42,7 @@ Upcoming layoffs planned for Q4.
 def generate_response(prompt: str) -> str:
     """Call Ollama and return the model text response."""
 
-    print("Sending request to Ollama...")
+    print("Sending request to AI model...")
 
     r = requests.post(
         OLLAMA_URL,
@@ -113,7 +108,6 @@ def upload_file(file: UploadFile = File(...)):
             detail=f"Failed to process file: {str(e)}"
         )
 
-
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
 
@@ -137,7 +131,7 @@ Assistant:
 
         response = generate_response(prompt)
 
-
+       
         return ChatResponse(
             response=response,
             system_prompt=SYSTEM_PROMPT,

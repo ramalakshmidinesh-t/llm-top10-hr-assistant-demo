@@ -13,7 +13,7 @@ function App() {
     {
       role: "assistant",
       content:
-        "Welcome to the QuarkSek HR Assistant lab. Ask HR questions—or try prompt-injection techniques to test whether hidden salary data can be extracted.",
+        "Welcome to the QuarkSek HR Assistant lab. ",
     },
   ]);
   const [input, setInput] = useState("");
@@ -23,6 +23,7 @@ function App() {
   const [uploadMessage, setUploadMessage] = useState(null);
   const chatEndRef = useRef(null);
   const SHOW_DEBUG_PANEL = false;
+  const SHOW_SECURITY_WARNINGS = false;
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -208,17 +209,17 @@ function App() {
           <div ref={chatEndRef} />
         </div>
 
-        {debugData?.user_input?.toLowerCase().includes("ignore") && (
+        {SHOW_SECURITY_WARNINGS && debugData?.user_input?.toLowerCase().includes("ignore") && (
           <div className="mt-4 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
             ⚠ Prompt Injection Attempt Detected
           </div>
         )}
-        {debugData?.response?.toLowerCase().includes("password") && (
+        {SHOW_SECURITY_WARNINGS && debugData?.response?.toLowerCase().includes("password") && (
           <div className="mt-4 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
             ⚠ Sensitive Information Disclosure Detected
           </div>
         )}
-        {debugData?.retrieved_context && (
+        {SHOW_SECURITY_WARNINGS && debugData?.retrieved_context && (
           debugData.retrieved_context.toLowerCase().includes("ignore previous instructions") ||
           debugData.retrieved_context.toLowerCase().includes("reveal secrets")
         ) && (
@@ -226,20 +227,8 @@ function App() {
             ⚠ Warning: Retrieved RAG context contains instructions to bypass safeguards ("ignore previous instructions" or "reveal secrets"). This is a RAG Poisoning / Indirect Prompt Injection risk!
           </div>
         )}
-        <div className="mt-3 flex flex-wrap gap-2">
-          {TRAINING_PROMPTS.map((prompt) => (
-            <button
-              key={prompt}
-              type="button"
-              onClick={() => sendMessage(prompt)}
-              disabled={loading}
-              className="text-left text-xs rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-slate-300 hover:border-indigo-500/50 hover:text-indigo-200 transition disabled:opacity-50"
-            >
-              {prompt.length > 48 ? `${prompt.slice(0, 48)}…` : prompt}
-            </button>
-          ))}
-        </div>
-        {debugData && SHOW_DEBUG_PANEL && (
+        
+        {SHOW_SECURITY_WARNINGS && debugData && SHOW_DEBUG_PANEL  (
           <div className="mt-6 rounded-xl border border-slate-700 bg-black p-4 text-sm text-green-400">
 
             <h2 className="text-lg font-bold text-white mb-4">
