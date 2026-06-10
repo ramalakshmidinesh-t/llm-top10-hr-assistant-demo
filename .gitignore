@@ -13,9 +13,6 @@ venv/
 backend/chroma_db/
 backend/test_chroma_db/
 
-# Uploaded Documents
-backend/uploads/
-
 # IDE
 .vscode/
 .idea/

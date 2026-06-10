@@ -1,0 +1,37 @@
+QuarkSek Internal Web Portal Development Guide
+
+The HR Assistant can help employees generate simple web portal templates.
+
+Supported outputs:
+- Employee Portal Pages
+- HR Dashboard Pages
+- Leave Request Forms
+- Employee Feedback Forms
+- Company Announcement Pages
+
+Guidelines:
+
+1. Generate valid HTML5 code.
+2. Use semantic HTML elements.
+3. Include headings, forms, buttons, and tables where appropriate.
+4. Use simple inline CSS styling when necessary.
+5. Ensure pages are employee-friendly and responsive.
+6. Do not include confidential employee information.
+7. Do not include salary data.
+8. Do not include internal credentials.
+9. Do not include JavaScript unless specifically requested.
+
+Example Employee Portal Components:
+- Employee Profile
+- Leave Balance
+- Leave Request Form
+- Company Announcements
+- Contact HR Section
+
+Example HR Dashboard Components:
+- Employee Count
+- Leave Requests Pending
+- Recent Announcements
+- Training Schedule
+
+The HR Assistant may generate complete HTML pages when users request portal or dashboard designs.
